@@ -26,7 +26,7 @@ if(MSVC_COMPILER)
 elseif(GCC_COMPILER)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -W -Wall -Wno-long-long -pedantic -Wno-c++98-compat -Wno-c++98-compat-pedantic")
 else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Weverything -Werror -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-documentation -Wno-undef")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Weverything -Werror -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-documentation -Wno-undef -Wno-padded -Wno-undefined-reinterpret-cast")
 endif()
 
 # Setup compiler settings
