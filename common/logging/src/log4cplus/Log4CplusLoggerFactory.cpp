@@ -7,15 +7,12 @@
 
 USE_HE_LOGGING_NAMESPACE
 
-Log4CplusLoggerFactory::Log4CplusLoggerFactory():
-    _initializer(std::make_unique<log4cplus::Initializer>())
-{
-    log4cplus::BasicConfigurator::doConfigure();
-}
-
 Log4CplusLoggerFactory::Log4CplusLoggerFactory(const std::string &configFilePath):
 		_initializer(std::make_unique<log4cplus::Initializer>()) {
-    log4cplus::PropertyConfigurator::doConfigure(configFilePath);
+    if(configFilePath.empty())
+        log4cplus::BasicConfigurator::doConfigure();
+    else
+        log4cplus::PropertyConfigurator::doConfigure(configFilePath);
 }
 
 Log4CplusLoggerFactory::~Log4CplusLoggerFactory() = default;

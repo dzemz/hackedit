@@ -15,14 +15,10 @@ class HE_COMMON_LOGGING_EXPORT Log4CplusLoggerFactory: public ILoggerFactory
 {
 public:
     /**
-     * @brief Creates a basic log4cplus configuration.
-     */
-    Log4CplusLoggerFactory();
-    /**
      * @brief Creates a property based configuration from a config file.
-     * @param configFilePath Path of the config file.
+     * @param configFilePath Path of the config file. If path is empty, a default basic config will be used.
      */
-    Log4CplusLoggerFactory(const std::string& configFilePath);
+    Log4CplusLoggerFactory(const std::string& configFilePath="");
 	~Log4CplusLoggerFactory();
     /**
      * @brief Creates an ILogger instance that you can use with a logging macro.
