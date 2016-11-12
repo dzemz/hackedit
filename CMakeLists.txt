@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.2)
 
 # get build number from number of commits
 execute_process(COMMAND git rev-list --count HEAD
+                WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
                 OUTPUT_VARIABLE BUILD_NUMBER
                 OUTPUT_STRIP_TRAILING_WHITESPACE)
 project(HackEdit
@@ -22,7 +23,7 @@ set_option(BUILD_EXAMPLES TRUE BOOL "TRUE to build the examples, FALSE to ignore
 set_option(BUILD_TESTS TRUE BOOL "TRUE to build the tests, FALSE to ignore them.")
 set_option(BUILD_EDITOR TRUE BOOL "TRUE to build the editor component, FALSE to skip it.")
 set_option(BUILD_APPLICATION TRUE BOOL "TRUE to build the application component, FALSE to skip it.")
-set_option(ENABLE_COVERAGE TRUE BOOL "True to build code coverage targerts")
+set_option(ENABLE_COVERAGE FALSE BOOL "True to build code coverage targerts")
 
 # enable test
 if(BUILD_TESTS)
