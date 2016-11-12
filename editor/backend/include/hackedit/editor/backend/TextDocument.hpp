@@ -3,7 +3,7 @@
 #include <QObject>
 #include <hackedit/common/HackEditNamespace.hpp>
 #include <hackedit/common/logging/ILogger.hpp>
-#include <hackedit/editor/backend/DllDefines.hpp>
+#include <hackedit/editor/backend/Exports.hpp>
 #include <memory>
 
 BEGIN_HACKEDIT_NAMESPACE2(Editor, Backend)

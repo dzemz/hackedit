@@ -1,6 +1,6 @@
 project(HackEdit.Editor.Frontend)
 
-set(QML_DIR ${QML_LOCAL_IMPORT_DIR}/HackEdit/Editor)
+set(QML_DIR ${QML_IMPORT_PATH}/HackEdit/Editor)
 make_directory(${QML_DIR})
 
 file(GLOB_RECURSE HEADER_FILES include/*.hpp)

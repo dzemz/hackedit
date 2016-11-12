@@ -3,7 +3,7 @@
 #include <hackedit/common/HackEditNamespace.hpp>
 #include <QtQml/qqml.h>
 #include <QtQml/QQmlExtensionPlugin>
-#include "DllDefines.hpp"
+#include "Exports.hpp"
 
 BEGIN_HACKEDIT_NAMESPACE2(Editor, Frontend)
 

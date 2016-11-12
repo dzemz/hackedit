@@ -6,26 +6,56 @@ import HackEdit.Editor 0.1
 
 ApplicationWindow {
     visible: true
-    width: 640
-    height: 480
+    width: 1280
+    height: 720
     property bool dark: true
     Material.theme: dark ? Material.Dark: Material.Light
     Material.accent: Material.LightBlue
+    Material.primary: Material.background
 
-    RowLayout {
-        anchors.fill: parent
-        anchors.margins: 9
-        Button { }
-        CheckBox{ }
-        Switch { }
-        ComboBox { model: ["First", "Second", "Third"] }
-        CodeEditor {
-            Layout.fillHeight: true
-            Layout.fillWidth: true
 
-            BusyIndicator {
-             anchors.centerIn: parent
+    header: ToolBar {
+        RowLayout {
+            anchors.fill: parent
+            ToolButton {
+                text: qsTr("New")
+            }
+            ToolButton {
+                text: qsTr("Open")
+            }
+            ToolButton {
+                text: qsTr("Save")
+            }
+            ToolButton {
+                text: qsTr("Save as")
+            }
+            Item {
+                Layout.preferredWidth: 7
+                Layout.fillHeight: true
+
+                Rectangle {
+                    anchors.centerIn: parent
+                    anchors.margins: 3
+                    height: 22
+                    width: 1
+                    color: Material.Grey
+                }
+            }
+            ToolButton {
+                text: qsTr("Undo")
+            }
+            ToolButton {
+                text: qsTr("Redo")
+            }
+            Item { Layout.fillWidth: true }
+            ToolButton {
+                text: qsTr("Menu")
             }
         }
+
+    }
+
+    CodeEditor {
+        anchors.fill: parent
     }
 }
