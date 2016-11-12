@@ -1,6 +1,6 @@
 #pragma once
 
-#include <hackedit/common/logging/Macros.hpp>
+#include <hackedit/common/logging/Exports.hpp>
 #include <hackedit/common/logging/LogLevel.hpp>
 #include <sstream>
 #include <string>

@@ -1,9 +1,10 @@
 #pragma once
 
-#include <hackedit/common/logging/Macros.hpp>
+#include <hackedit/common/logging/Exports.hpp>
 #include <hackedit/common/logging/ILogger.hpp>
 #include <hackedit/common/logging/ILoggerFactory.hpp>
 #include <hackedit/common/logging/LoggingMacros.hpp>
+#include <hackedit/common/Cpp14Support.hpp>
 
 #include <memory>
 #include <string>
@@ -15,11 +16,12 @@ HE_COMMON_LOGGING_EXPORT typedef std::shared_ptr<ILogger> ILoggerPtr;
 class HE_COMMON_LOGGING_EXPORT LoggingManager
 {
 public:
-    LoggingManager(std::unique_ptr<ILoggerFactory> factory);
-    ILoggerPtr logger(const std::string& name="");
+    static void initialize(std::unique_ptr<ILoggerFactory> factory);
+    static void shutdown();
+    static ILoggerPtr logger(const std::string& name="");
 
 private:
-    std::shared_ptr<ILoggerFactory> _factory;
+    static std::unique_ptr<ILoggerFactory> _factory;
 };
 
 END_HE_LOGGING_NAMESPACE

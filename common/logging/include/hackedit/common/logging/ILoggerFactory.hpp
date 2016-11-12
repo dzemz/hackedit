@@ -1,6 +1,6 @@
 #pragma once
 
-#include <hackedit/common/logging/Macros.hpp>
+#include <hackedit/common/logging/Exports.hpp>
 #include <string>
 #include <memory>
 

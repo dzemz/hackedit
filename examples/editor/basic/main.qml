@@ -10,6 +10,7 @@ ApplicationWindow {
     height: 480
     property bool dark: true
     Material.theme: dark ? Material.Dark: Material.Light
+    Material.accent: Material.LightBlue
 
     RowLayout {
         anchors.fill: parent

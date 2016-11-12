@@ -36,6 +36,8 @@ if(BUILD_TESTS)
 endif()
 
 # sub-projects
+file(GLOB_RECURSE COMMON_HEADERS common/include/*hpp)
+include_directories(common/include)  # common header only library
 add_subdirectory(common)
 if(BUILD_EDITOR)
     add_subdirectory(editor)

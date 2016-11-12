@@ -2,7 +2,7 @@
 #include <hackedit/common/logging/LogLevel.hpp>
 #include <hackedit/common/logging/ILogger.hpp>
 #include <hackedit/common/logging/log4cplus/Log4CplusLoggerFactory.hpp>
-#include <hackedit/common/utils/Cpp14Support.hpp>
+#include <hackedit/common/Cpp14Support.hpp>
 
 USE_HE_LOGGING_NAMESPACE
 

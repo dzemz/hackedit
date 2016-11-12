@@ -2,9 +2,14 @@
 
 USE_HE_LOGGING_NAMESPACE
 
+std::unique_ptr<ILoggerFactory> LoggingManager::_factory = nullptr;
 
-LoggingManager::LoggingManager(std::unique_ptr<ILoggerFactory> factory): _factory(std::move(factory)) {
+void LoggingManager::initialize(std::unique_ptr<ILoggerFactory> factory) {
+    _factory = std::move(factory);
+}
 
+void LoggingManager::shutdown() {
+    _factory = nullptr;
 }
 
 std::shared_ptr<ILogger> LoggingManager::logger(const std::string &name) {

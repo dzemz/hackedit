@@ -2,6 +2,8 @@
 
 #include <QObject>
 #include <hackedit/editor/backend/DllDefines.hpp>
+#include <hackedit/common/logging/ILogger.hpp>
+#include <memory>
 
 namespace hackedit {
     namespace editor {
@@ -21,6 +23,7 @@ namespace hackedit {
 
             private:
                 QString _text;
+                std::shared_ptr<common::logging::ILogger> _logger;
             };
         }
     }

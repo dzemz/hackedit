@@ -3,7 +3,15 @@
 #include <QQuickStyle>
 #include <QDebug>
 
+#include <hackedit/common/logging/LoggingManager.hpp>
+#include <hackedit/common/logging/log4cplus/Log4CplusLoggerFactory.hpp>
+
+using namespace hackedit::common::logging;
+
 int main(int argc, char *argv[]) {
+    // init logging system with a basic log4cplus config
+    LoggingManager::initialize(std::make_unique<Log4CplusLoggerFactory>());
+
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
     QQuickStyle::setStyle("Material");
@@ -14,5 +22,11 @@ int main(int argc, char *argv[]) {
 #endif
     engine.load(QUrl("qrc:///main.qml"));
 
-    return app.exec();
+    // run qt application main event loop
+    int retVal = app.exec();
+
+    // explicit shutdown of the logging system is required
+    LoggingManager::shutdown();
+
+    return retVal;
 }
