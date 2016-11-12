@@ -4,7 +4,7 @@
 #include <hackedit/common/logging/log4cplus/Log4CplusLoggerFactory.hpp>
 #include <hackedit/common/Cpp14Support.hpp>
 
-USE_HE_LOGGING_NAMESPACE
+USE_HACKEDIT_NAMESPACE2(Common, Logging)
 
 class TestLog4CplusLogger: public testing::Test {
 public:

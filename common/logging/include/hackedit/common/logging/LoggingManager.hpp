@@ -4,12 +4,13 @@
 #include <hackedit/common/logging/ILogger.hpp>
 #include <hackedit/common/logging/ILoggerFactory.hpp>
 #include <hackedit/common/logging/LoggingMacros.hpp>
+#include <hackedit/common/HackEditNamespace.hpp>
 #include <hackedit/common/Cpp14Support.hpp>
 
 #include <memory>
 #include <string>
 
-BEGIN_HE_LOGGING_NAMESPACE
+BEGIN_HACKEDIT_NAMESPACE2(Common, Logging)
 
 HE_COMMON_LOGGING_EXPORT typedef std::shared_ptr<ILogger> ILoggerPtr;
 
@@ -24,4 +25,4 @@ private:
     static std::unique_ptr<ILoggerFactory> _factory;
 };
 
-END_HE_LOGGING_NAMESPACE
+END_HACKEDIT_NAMESPACE2

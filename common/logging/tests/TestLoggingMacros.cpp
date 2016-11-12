@@ -4,7 +4,7 @@
 #include <gtest/gtest.h>
 #include <memory>
 
-using namespace hackedit::common::logging;
+USE_HACKEDIT_NAMESPACE2(Common, Logging)
 using testing::Return;
 using ::testing::_;
 

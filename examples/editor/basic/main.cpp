@@ -6,7 +6,7 @@
 #include <hackedit/common/logging/LoggingManager.hpp>
 #include <hackedit/common/logging/log4cplus/Log4CplusLoggerFactory.hpp>
 
-using namespace hackedit::common::logging;
+using namespace HackEdit::Common::Logging;
 
 int main(int argc, char *argv[]) {
     // init logging system with a basic log4cplus config

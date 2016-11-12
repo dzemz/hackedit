@@ -6,7 +6,7 @@ namespace log4cplus {
 	class Initializer;
 }
 
-BEGIN_HE_LOGGING_NAMESPACE
+BEGIN_HACKEDIT_NAMESPACE2(Common, Logging)
 
 /**
  * @brief The Log4CplusLoggerFactory class creates ILogger instances using the Log4CplusLogger implementation.
@@ -34,4 +34,4 @@ private:
 	std::unique_ptr<log4cplus::Initializer> _initializer;
 };
 
-END_HE_LOGGING_NAMESPACE
+END_HACKEDIT_NAMESPACE2

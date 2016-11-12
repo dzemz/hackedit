@@ -5,7 +5,7 @@
 #include <log4cplus/loggingmacros.h>
 #include <log4cplus/initializer.h>
 
-USE_HE_LOGGING_NAMESPACE
+USE_HACKEDIT_NAMESPACE2(Common, Logging)
 
 Log4CplusLoggerFactory::Log4CplusLoggerFactory(const std::string &configFilePath):
 		_initializer(std::make_unique<log4cplus::Initializer>()) {

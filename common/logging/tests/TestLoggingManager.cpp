@@ -4,7 +4,7 @@
 #include <hackedit/common/Cpp14Support.hpp>
 #include <gtest/gtest.h>
 
-using namespace hackedit::common::logging;
+USE_HACKEDIT_NAMESPACE2(Common, Logging)
 using testing::Return;
 
 class TestLoggingManager: public testing::Test {

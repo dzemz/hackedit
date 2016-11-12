@@ -1,10 +1,11 @@
 #pragma once
 
+#include <hackedit/common/HackEditNamespace.hpp>
 #include <hackedit/common/logging/Exports.hpp>
 #include <string>
 #include <memory>
 
-BEGIN_HE_LOGGING_NAMESPACE
+BEGIN_HACKEDIT_NAMESPACE2(Common, Logging)
 
 class ILogger;
 
@@ -16,4 +17,4 @@ public:
 
 };
 
-END_HE_LOGGING_NAMESPACE
+END_HACKEDIT_NAMESPACE2

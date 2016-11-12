@@ -1,11 +1,12 @@
 #pragma once
 
+#include <hackedit/common/HackEditNamespace.hpp>
 #include <hackedit/common/logging/Exports.hpp>
 #include <hackedit/common/logging/LogLevel.hpp>
 #include <sstream>
 #include <string>
 
-BEGIN_HE_LOGGING_NAMESPACE
+BEGIN_HACKEDIT_NAMESPACE2(Common, Logging)
 
 class HE_COMMON_LOGGING_EXPORT ILogger
 {
@@ -14,4 +15,4 @@ public:
     virtual void log(const std::string& logEvent, LogLevel level, const char* file, int line) = 0;
 };
 
-END_HE_LOGGING_NAMESPACE
+END_HACKEDIT_NAMESPACE2

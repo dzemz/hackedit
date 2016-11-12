@@ -3,7 +3,7 @@
 #include <hackedit/common/logging/ILogger.hpp>
 #include <log4cplus/logger.h>
 
-BEGIN_HE_LOGGING_NAMESPACE
+BEGIN_HACKEDIT_NAMESPACE2(Common, Logging)
 
 class HE_COMMON_LOGGING_EXPORT Log4CplusLogger: public ILogger
 {
@@ -15,4 +15,4 @@ private:
     log4cplus::Logger _logger;
 };
 
-END_HE_LOGGING_NAMESPACE
+END_HACKEDIT_NAMESPACE2

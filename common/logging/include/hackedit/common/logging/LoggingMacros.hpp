@@ -1,8 +1,9 @@
 #pragma once
 
 #include <sstream>
+#include <hackedit/common/HackEditNamespace.hpp>
 
-BEGIN_HE_LOGGING_NAMESPACE
+BEGIN_HACKEDIT_NAMESPACE2(Common, Logging)
 
 #define LOG(logger, logEvent, logLevel) \
     if(logger != nullptr) {\
@@ -29,4 +30,4 @@ BEGIN_HE_LOGGING_NAMESPACE
 #define LOG_FATAL(logger, logEvent) \
     LOG(logger, logEvent, LogLevel::Fatal)
 
-END_HE_LOGGING_NAMESPACE
+END_HACKEDIT_NAMESPACE2

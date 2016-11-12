@@ -1,6 +1,6 @@
 #include <hackedit/common/logging/LoggingManager.hpp>
 
-USE_HE_LOGGING_NAMESPACE
+USE_HACKEDIT_NAMESPACE2(Common, Logging)
 
 std::unique_ptr<ILoggerFactory> LoggingManager::_factory = nullptr;
 

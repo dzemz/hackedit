@@ -3,7 +3,7 @@
 #include <gmock/gmock.h>
 #include <hackedit/common/logging/ILoggerFactory.hpp>
 
-using namespace hackedit::common::logging;
+USE_HACKEDIT_NAMESPACE2(Common, Logging)
 
 class MockILoggerFactory: public ILoggerFactory
 {

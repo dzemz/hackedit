@@ -1,7 +1,7 @@
 #include "LogsCplusLogger.hpp"
 #include <log4cplus/loggingmacros.h>
 
-USE_HE_LOGGING_NAMESPACE
+USE_HACKEDIT_NAMESPACE2(Common, Logging)
 
 Log4CplusLogger::Log4CplusLogger(const log4cplus::Logger &logger):
         _logger(logger) {

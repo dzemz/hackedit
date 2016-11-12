@@ -2,7 +2,7 @@
 #include <QSignalSpy>
 #include <gtest/gtest.h>
 
-using namespace hackedit::editor::backend;
+USE_HACKEDIT_NAMESPACE2(Editor, Backend)
 
 class TestTextDocument: public testing::Test {
 

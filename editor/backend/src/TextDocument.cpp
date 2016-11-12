@@ -1,8 +1,8 @@
 #include "TextDocument.hpp"
 #include <hackedit/common/logging/LoggingManager.hpp>
 
-using namespace hackedit::editor::backend;
-using namespace hackedit::common::logging;
+USE_HACKEDIT_NAMESPACE2(Common, Logging)
+USE_HACKEDIT_NAMESPACE2(Editor, Backend)
 
 TextDocument::TextDocument(QObject *parent) : QObject(parent), _logger(LoggingManager::logger("TextDocument")) {
 
