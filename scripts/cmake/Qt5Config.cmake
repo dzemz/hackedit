@@ -10,7 +10,7 @@ function(QT5_QUERY_QMAKE VAR RESULT)
     endif()
 endfunction()
 
-set(QT_MIN_VERSION 5.2)
+set(QT_MIN_VERSION 5.7)
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Qml Quick Test QuickControls2)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
