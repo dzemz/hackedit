@@ -27,6 +27,9 @@ script:
   - cmake -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DENABLE_COVERAGE=$ENABLE_COVERAGE ..
   - cmake --build .
   - ctest -V
+
+after_script:
   - if [[ $ENABLE_COVERAGE == 'ON' ]]; then
-      coveralls-lcov --repo-token ${COVERALLS_TOKEN} coverage.info.cleaned
+      make coverage;
+      coveralls-lcov --repo-token ${COVERALLS_TOKEN} coverage.info.cleaned;
     fi
