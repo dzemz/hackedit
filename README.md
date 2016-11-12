@@ -1,7 +1,8 @@
 # hackedit
 
-[![Build Status](https://travis-ci.org/HackEdit/hackedit.svg?branch=master)](https://travis-ci.org/HackEdit/hackedit)
-[![Build status](https://ci.appveyor.com/api/projects/status/x5xubrws4hhoixi2/branch/master?svg=true)](https://ci.appveyor.com/project/ColinDuquesnoy/hackedit/branch/master)
+[![GNU/Linux and Mac OSX Build Status](https://travis-ci.org/HackEdit/hackedit.svg?branch=master)](https://travis-ci.org/HackEdit/hackedit)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/x5xubrws4hhoixi2/branch/master?svg=true)](https://ci.appveyor.com/project/ColinDuquesnoy/hackedit/branch/master)
+[![Coverage Status](https://coveralls.io/repos/github/HackEdit/hackedit/badge.svg?branch=master)](https://coveralls.io/github/HackEdit/hackedit?branch=master)
 
 The hackable and modern IDE, built with QML and Material design
 
