@@ -20,7 +20,7 @@ branches:
     - gh-pages
 
 install:
-  - if "%platform%"=="Win32" set QTDIR=C:\Qt\5.7\msvc2015
+  - if "%platform%"=="x86" set QTDIR=C:\Qt\5.7\msvc2015
   - if "%platform%"=="x64" set QTDIR=C:\Qt\5.7\msvc2015_64
   - set PATH=%PATH%;%QTDIR%\bin;%QTDIR%\lib
   - set CMAKE_PREFIX_PATH=%QTDIR%
