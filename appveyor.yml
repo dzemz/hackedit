@@ -2,11 +2,9 @@ version: "0.1.0.{build}"
 os: Visual Studio 2015
 
 platform:
-  - x86
   - x64
 
 configuration:
-  - Debug
   - Release
 
 init:
@@ -20,23 +18,15 @@ branches:
     - gh-pages
 
 install:
-  - if "%platform%"=="x86" set QTDIR=C:\Qt\5.7\msvc2015
-  - if "%platform%"=="x64" set QTDIR=C:\Qt\5.7\msvc2015_64
+  - set QTDIR=C:\Qt\5.7\msvc2015_64
   - set PATH=%PATH%;%QTDIR%\bin;%QTDIR%\lib
   - set CMAKE_PREFIX_PATH=%QTDIR%
   - set GTEST_COLOR=1
 
 build_script:
-  - mkdir build
-  - cd build
-  - if "%platform%"=="x86" set CMAKE_GENERATOR_NAME=Visual Studio 14 2015
-  - if "%platform%"=="x64"   set CMAKE_GENERATOR_NAME=Visual Studio 14 2015 Win64
-  - cmake -G "%CMAKE_GENERATOR_NAME%" -DCMAKE_BUILD_TYPE=%configuration% -DBUILD_TESTS=TRUE ..
-  - cmake --build . --config %configuration%
-  - cd ..
+  - cmake -G "Visual Studio 14 2015 Win64" -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=TRUE .
+  - cmake --build . --config Release
 
 test_script:
-  - cd build\Publish\bin
-  - HackEdit.Common.Logging.Tests.exe
-  - HackEdit.Editor.Backend.Tests.exe
-  - cd ..
+  - Publish\bin\HackEdit.Common.Logging.Tests.exe
+  - Publish\bin\HackEdit.Editor.Backend.Tests.exe
