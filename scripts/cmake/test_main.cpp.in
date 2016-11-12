@@ -1,0 +1,11 @@
+#include <gtest/gtest.h>
+#include <log4cplus/log4cplus.h>
+
+int main(int argc, char **argv) {
+#if defined(_WINDOWS)
+	log4cplus::Initializer initializer;  // needed on windows, see: https://github.com/log4cplus/log4cplus#windows-and-visual-studio
+#endif
+	testing::InitGoogleTest(&argc, argv);
+    int retVal = RUN_ALL_TESTS();
+	return retVal;
+}

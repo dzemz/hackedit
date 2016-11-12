@@ -1,0 +1,3 @@
+module HackEdit.Editor
+plugin HackEdit.Editor.Frontend
+CodeEditor @HACKEDIT_EDITOR_VERSION_MAJOR@.@HACKEDIT_EDITOR_VERSION_MINOR@ CodeEditor.qml

@@ -1,0 +1,29 @@
+language: cpp
+
+matrix:
+    include:
+        - os: linux
+          sudo: required
+          dist: trusty
+          compiler: gcc
+          env: CMAKE_BUILD_TYPE=Debug
+        - os: linux
+          sudo: required
+          dist: trusty
+          compiler: gcc
+          env: CMAKE_BUILD_TYPE=Release
+        - os: osx
+          compiler: clang
+          env: CMAKE_BUILD_TYPE=Debug
+        - os: osx
+          compiler: clang
+          env: CMAKE_BUILD_TYPE=Release
+
+install:
+    - source scripts/travis-install.sh
+
+script:
+  - mkdir build && cd build
+  - cmake -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE ..
+  - cmake --build .
+  - ctest -V
