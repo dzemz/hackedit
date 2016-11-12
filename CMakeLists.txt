@@ -10,6 +10,7 @@ project(HackEdit
 add_definitions(-DHACKEDIT_VERSION_MAJOR=${HackEdit_VERSION_MAJOR})
 add_definitions(-DHACKEDIT_VERSION_MINOR=${HackEdit_VERSION_MINOR})
 
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/scripts/cmake" ${CMAKE_MODULE_PATH})
 include(scripts/cmake/Macros.cmake)
 include(scripts/cmake/Config.cmake)
 include(scripts/cmake/Qt5Config.cmake)
@@ -21,10 +22,17 @@ set_option(BUILD_EXAMPLES TRUE BOOL "TRUE to build the examples, FALSE to ignore
 set_option(BUILD_TESTS TRUE BOOL "TRUE to build the tests, FALSE to ignore them.")
 set_option(BUILD_EDITOR TRUE BOOL "TRUE to build the editor component, FALSE to skip it.")
 set_option(BUILD_APPLICATION TRUE BOOL "TRUE to build the application component, FALSE to skip it.")
+set_option(ENABLE_COVERAGE TRUE BOOL "True to build code coverage targerts")
 
 # enable test
 if(BUILD_TESTS)
     include(scripts/cmake/GTest.cmake)
+    if(ENABLE_COVERAGE AND GCC_COMPILER)
+        include(scripts/cmake/CodeCoverage.cmake)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0")        # debug, no optimisation
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")    # enabling coverage
+        setup_target_for_coverage(coverage "make test" coverage)
+    endif()
 endif()
 
 # sub-projects
