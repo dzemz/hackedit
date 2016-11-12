@@ -9,17 +9,17 @@ USE_HACKEDIT_NAMESPACE2(Common, Logging)
 class TestLog4CplusLogger: public testing::Test {
 public:
     static void SetUpTestCase() {
-        factory = std::make_unique<Log4CplusLoggerFactory>();
+        factory = std::move(Log4CplusLoggerFactory::basicConfig());
     }
     static void TearDownTestCase() {
         factory = nullptr;
     }
 
 protected:
-    static std::unique_ptr<Log4CplusLoggerFactory> factory;
+    static std::unique_ptr<ILoggerFactory> factory;
 };
 
-std::unique_ptr<Log4CplusLoggerFactory> TestLog4CplusLogger::factory = nullptr;
+std::unique_ptr<ILoggerFactory> TestLog4CplusLogger::factory = nullptr;
 
 
 TEST_F(TestLog4CplusLogger, BasicConfig_TRACE_NoDisplay_OnStdout) {

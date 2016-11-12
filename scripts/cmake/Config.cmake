@@ -1,6 +1,6 @@
 # set a local qml import dir for developers (to avoid to have to install the plugins to test and develop them).
-set(QML_LOCAL_IMPORT_DIR ${CMAKE_BINARY_DIR}/imports)
-add_definitions(-DQML_LOCAL_IMPORT_DIR=\"${QML_LOCAL_IMPORT_DIR}\")
+set(QML_IMPORT_PATH ${CMAKE_BINARY_DIR}/imports)
+add_definitions(-DQML_IMPORT_PATH=\"${QML_IMPORT_PATH}\")
 set(BUILDING_HACKEDIT_EDITOR TRUE)
 
 # detect compilers

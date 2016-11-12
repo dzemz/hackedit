@@ -26,6 +26,9 @@ public:
      * @return The created logger instance.
      */
     std::shared_ptr<ILogger> logger(const std::string &name="") override;
+
+    static std::unique_ptr<ILoggerFactory> basicConfig();
+    static std::unique_ptr<ILoggerFactory> fileConfig(const std::string& configFilePath);
 private:
 	std::unique_ptr<log4cplus::Initializer> _initializer;
 };

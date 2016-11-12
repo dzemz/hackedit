@@ -19,8 +19,7 @@ private:
 };
 
 int main(int, char *[]) {
-    auto loggerFactory = std::make_unique<Log4CplusLoggerFactory>("example-log-config.ini");
-    LoggingManager::initialize(std::move(loggerFactory));
+    LoggingManager::initialize(Log4CplusLoggerFactory::fileConfig("example-log-config.ini"));
 
     // root logger
     auto logger = LoggingManager::logger();

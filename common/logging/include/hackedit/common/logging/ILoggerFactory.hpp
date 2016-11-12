@@ -13,7 +13,7 @@ class HE_COMMON_LOGGING_EXPORT ILoggerFactory
 {
 public:
     virtual ~ILoggerFactory();
-    virtual std::shared_ptr<ILogger> logger(const std::string& name) = 0;
+    virtual std::shared_ptr<ILogger> logger(const std::string& name="") = 0;
 
 };
 

@@ -20,3 +20,13 @@ Log4CplusLoggerFactory::~Log4CplusLoggerFactory() = default;
 std::shared_ptr<ILogger> Log4CplusLoggerFactory::logger(const std::string &name) {
     return std::make_unique<Log4CplusLogger>(log4cplus::Logger::getInstance(name));
 }
+
+std::unique_ptr<ILoggerFactory> Log4CplusLoggerFactory::basicConfig()
+{
+    return std::make_unique<Log4CplusLoggerFactory>();
+}
+
+std::unique_ptr<ILoggerFactory> Log4CplusLoggerFactory::fileConfig(const std::__cxx11::string &configFilePath)
+{
+    return std::make_unique<Log4CplusLoggerFactory>(configFilePath);
+}

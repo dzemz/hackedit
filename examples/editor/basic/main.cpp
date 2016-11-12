@@ -10,15 +10,15 @@ using namespace HackEdit::Common::Logging;
 
 int main(int argc, char *argv[]) {
     // init logging system with a basic log4cplus config
-    LoggingManager::initialize(std::make_unique<Log4CplusLoggerFactory>());
+    LoggingManager::initialize(Log4CplusLoggerFactory::basicConfig());
 
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
     QQuickStyle::setStyle("Material");
 
-#ifdef QML_LOCAL_IMPORT_DIR
-    qDebug() << QML_LOCAL_IMPORT_DIR;
-    engine.addImportPath(QML_LOCAL_IMPORT_DIR);
+#ifdef QML_IMPORT_PATH
+    qDebug() << QML_IMPORT_PATH;
+    engine.addImportPath(QML_IMPORT_PATH);
 #endif
     engine.load(QUrl("qrc:///main.qml"));
 
