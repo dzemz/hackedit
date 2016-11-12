@@ -23,10 +23,8 @@ if(MSVC_COMPILER)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
     endif()
     add_definitions("/wd4251")
-elseif(GCC_COMPILER)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -W -Wall -Wno-long-long -pedantic -Wno-c++98-compat -Wno-c++98-compat-pedantic")
 else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Weverything -Werror -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-documentation -Wno-undef -Wno-padded -Wno-undefined-reinterpret-cast")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -W -Wall -Wextra")
 endif()
 
 # Setup compiler settings
