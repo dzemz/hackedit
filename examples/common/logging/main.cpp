@@ -1,5 +1,6 @@
 #include <hackedit/common/logging/LoggingManager.hpp>
 #include <hackedit/common/logging/log4cplus/Log4CplusLoggerFactory.hpp>
+#include <QDebug>
 
 using namespace HackEdit::Common::Logging;
 
@@ -41,6 +42,11 @@ int main(int, char *[]) {
 
     Foo foo;
     foo.bar();
+
+    qDebug() << "Message emitted using qDebug";
+    qInfo() << "Message emitted using qInfo";
+    qWarning() << "Message emitted using qWarning";
+    qCritical() << "Message emitted using qCritical";
 
     LoggingManager::shutdown();
 
