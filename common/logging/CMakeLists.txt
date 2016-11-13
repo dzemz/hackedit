@@ -12,6 +12,7 @@ set_property(TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
 include_directories(include/)
 target_include_directories(${PROJECT_NAME} PUBLIC include/)
 target_link_libraries(${PROJECT_NAME} log4cplus ${CMAKE_THREAD_LIBS_INIT})
+qt5_use_modules(${PROJECT_NAME} Core)
 
 if(BUILD_TESTS)
     add_subdirectory(tests)
