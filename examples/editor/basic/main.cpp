@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
 #include <QDebug>
+#include <QIcon>
 
 #include <hackedit/common/logging/LoggingManager.hpp>
 #include <hackedit/common/logging/log4cplus/Log4CplusLoggerFactory.hpp>
@@ -13,6 +14,7 @@ int main(int argc, char *argv[]) {
     LoggingManager::initialize(Log4CplusLoggerFactory::basicConfig());
 
     QGuiApplication app(argc, argv);
+    app.setWindowIcon(QIcon::fromTheme("accessories-text-editor"));
     QQmlApplicationEngine engine;
     QQuickStyle::setStyle("Material");
 
