@@ -43,9 +43,6 @@ add_subdirectory(common)
 if(BUILD_EDITOR)
     add_subdirectory(editor)
 endif()
-if(BUILD_EXAMPLES)
-    add_subdirectory(examples)
-endif()
 
 # Summary
 message(STATUS "Building HackEdit v${HackEdit_VERSION}")

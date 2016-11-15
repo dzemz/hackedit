@@ -74,6 +74,10 @@ ApplicationWindow {
         font.family: MaterialIcons.family
     }
 
+    Component.onCompleted: {
+        console.log("tata")
+    }
+
 /*    CodeEditor {
         anchors.fill: parent
     }*/

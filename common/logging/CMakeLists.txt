@@ -17,3 +17,7 @@ qt5_use_modules(${PROJECT_NAME} Core)
 if(BUILD_TESTS)
     add_subdirectory(tests)
 endif()
+
+if(BUILD_EXAMPLES)
+    add_subdirectory(examples)
+endif()
