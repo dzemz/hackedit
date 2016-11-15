@@ -21,18 +21,18 @@ ApplicationWindow {
         RowLayout {
             anchors.fill: parent
             ToolButton {
-                text: HackEditIcons.icons.create.value
-                font.family: HackEditIcons.icons.create.fontFamily
+                text: MaterialIcons.icon_create
+                font.family: MaterialIcons.family
                 font.pixelSize: toolBar.iconSize
             }
             ToolButton {
-                text: HackEditIcons.icons.folder_open.value
-                font.family: HackEditIcons.icons.folder_open.fontFamily
+                text: MaterialIcons.icon_folder_open
+                font.family: MaterialIcons.family
                 font.pixelSize: toolBar.iconSize
             }
             ToolButton {
-                text: HackEditIcons.icons.save.value
-                font.family: HackEditIcons.icons.save.fontFamily
+                text: MaterialIcons.icon_save
+                font.family: MaterialIcons.family
                 font.pixelSize: toolBar.iconSize
             }
             Item {
@@ -48,25 +48,33 @@ ApplicationWindow {
                 }
             }
             ToolButton {
-                text: HackEditIcons.icons.undo.value
-                font.family: HackEditIcons.icons.undo.fontFamily
+                text: MaterialIcons.icon_undo
+                font.family: MaterialIcons.family
                 font.pixelSize: toolBar.iconSize
             }
             ToolButton {
-                text: HackEditIcons.icons.redo.value
-                font.family: HackEditIcons.icons.redo.fontFamily
+                text: MaterialIcons.icon_redo
+                font.family: MaterialIcons.family
                 font.pixelSize: toolBar.iconSize
             }
             Item { Layout.fillWidth: true }
             ToolButton {
-                text: HackEditIcons.icons.menu.value
-                font.family: HackEditIcons.icons.menu.fontFamily
+                text: MaterialIcons.icon_menu
+                font.family: MaterialIcons.family
                 font.pixelSize: toolBar.iconSize
             }
         }
     }
 
-    CodeEditor {
-        anchors.fill: parent
+    Text {
+        anchors.centerIn: parent
+        font.pixelSize: 72
+        color: 'red'
+        text: MaterialIcons.icon_menu
+        font.family: MaterialIcons.family
     }
+
+/*    CodeEditor {
+        anchors.fill: parent
+    }*/
 }
