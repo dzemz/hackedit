@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import HackEdit.Editor 0.1
-import HackEdit.Common 0.1
+import HackEdit.Common.Icons 0.1
 
 
 ApplicationWindow {

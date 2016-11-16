@@ -7,7 +7,7 @@
 
 BEGIN_HACKEDIT_NAMESPACE2(Common, Controls)
 
-class HACKEDIT_COMMON_CONTROLS_EXPORT Plugin: public QQmlExtensionPlugin {
+class HACKEDIT_COMMON_ICONS_EXPORT Plugin: public QQmlExtensionPlugin {
 Q_OBJECT
     Q_PLUGIN_METADATA(IID QQmlExtensionInterface_iid)
 public:

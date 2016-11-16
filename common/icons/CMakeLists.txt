@@ -1,6 +1,6 @@
 project(HackEdit.Common.Icons)
 
-set(QML_DIR ${QML_IMPORT_PATH}/HackEdit/Common)
+set(QML_DIR ${QML_IMPORT_PATH}/HackEdit/Common/Icons)
 make_directory(${QML_DIR})
 
 file(GLOB_RECURSE HEADER_FILES include/*.hpp)
