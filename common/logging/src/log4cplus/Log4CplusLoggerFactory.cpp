@@ -4,13 +4,35 @@
 #include <log4cplus/configurator.h>
 #include <log4cplus/loggingmacros.h>
 #include <log4cplus/initializer.h>
+#include <log4cplus/helpers/property.h>
+
+#include <iostream>
 
 USE_HACKEDIT_NAMESPACE2(Common, Logging)
+
+
+class BasicConfigurator: public log4cplus::PropertyConfigurator
+{
+public:
+    BasicConfigurator(): log4cplus::PropertyConfigurator("") {
+        properties.setProperty("rootLogger",
+                               "DEBUG, STDOUT");
+        properties.setProperty("appender.STDOUT",
+                               "log4cplus::ConsoleAppender");
+        properties.setProperty("appender.STDOUT.ImmediateFlush", "true");
+    }
+
+    static void doConfigure() {
+        BasicConfigurator configurator;
+        configurator.configure();
+    }
+};
+
 
 Log4CplusLoggerFactory::Log4CplusLoggerFactory(const std::string &configFilePath):
 		_initializer(std::make_unique<log4cplus::Initializer>()) {
     if(configFilePath.empty())
-        log4cplus::BasicConfigurator::doConfigure();
+        BasicConfigurator::doConfigure();
     else
         log4cplus::PropertyConfigurator::doConfigure(configFilePath);
 }
