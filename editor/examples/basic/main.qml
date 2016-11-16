@@ -24,21 +24,40 @@ ApplicationWindow {
                 text: MaterialIcons.icon_create
                 font.family: MaterialIcons.family
                 font.pixelSize: toolBar.iconSize
+
+                onClicked: newDocument();
+                Shortcut {
+                    sequence: StandardKey.New
+                    onActivated: newDocument();
+                }
             }
+
             ToolButton {
                 text: MaterialIcons.icon_folder_open
                 font.family: MaterialIcons.family
                 font.pixelSize: toolBar.iconSize
+
+                onClicked: openDocument()
+                Shortcut {
+                    sequence: StandardKey.Open
+                    onActivated: openDocument()
+                }
             }
             ToolButton {
                 text: MaterialIcons.icon_save
                 font.family: MaterialIcons.family
                 font.pixelSize: toolBar.iconSize
+
+                onClicked: saveDocument()
+                Shortcut {
+                    sequence: StandardKey.Save
+                    onActivated: saveDocument()
+                }
             }
+            // separator
             Item {
                 Layout.preferredWidth: 7
                 Layout.fillHeight: true
-
                 Rectangle {
                     anchors.centerIn: parent
                     anchors.margins: 3
@@ -51,17 +70,31 @@ ApplicationWindow {
                 text: MaterialIcons.icon_undo
                 font.family: MaterialIcons.family
                 font.pixelSize: toolBar.iconSize
+
+                onClicked: undo()
+                Shortcut {
+                    sequence: StandardKey.Undo
+                    onActivated: undo()
+                }
             }
             ToolButton {
                 text: MaterialIcons.icon_redo
                 font.family: MaterialIcons.family
                 font.pixelSize: toolBar.iconSize
+
+                onClicked: redo()
+                Shortcut {
+                    sequence: StandardKey.Redo
+                    onActivated: redo()
+                }
             }
             Item { Layout.fillWidth: true }
             ToolButton {
                 text: MaterialIcons.icon_menu
                 font.family: MaterialIcons.family
+
                 font.pixelSize: toolBar.iconSize
+                onClicked: console.log("open menu")
             }
         }
     }
@@ -74,11 +107,28 @@ ApplicationWindow {
         font.family: MaterialIcons.family
     }
 
-    Component.onCompleted: {
-        console.log("tata")
+    function newDocument() {
+        console.log("Creating a new document");
     }
 
-/*    CodeEditor {
+    function openDocument() {
+        console.log("Opening an existing document");
+    }
+
+    function saveDocument() {
+        console.log("Saving document");
+    }
+
+    function undo() {
+        console.log("Undo");
+    }
+
+    function redo() {
+        console.log("Redo");
+    }
+
+
+    CodeEditor {
         anchors.fill: parent
-    }*/
+    }
 }
