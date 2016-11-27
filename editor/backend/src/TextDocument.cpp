@@ -17,6 +17,6 @@ void TextDocument::setText(QString text) {
         return;
 
     _text = text;
-    LOG_DEBUG(_logger, "Text changed: " << text.toStdString());
+    LOG_DEBUG(_logger, "Text changed: " << text);
     emit textChanged(text);
 }

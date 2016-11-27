@@ -2,6 +2,18 @@
 
 #include <sstream>
 #include <hackedit/common/HackEditNamespace.hpp>
+#include <QString>
+
+inline std::ostream& operator<<( std::ostream& stream, const QString& qstring) {
+    stream << qstring.toStdString();
+    return stream;
+}
+
+inline std::wostream& operator<<( std::wostream& stream, const QString& qstring) {
+    stream << qstring.toStdWString();
+    return stream;
+}
+
 
 BEGIN_HACKEDIT_NAMESPACE2(Common, Logging)
 
