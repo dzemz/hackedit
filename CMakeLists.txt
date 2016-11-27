@@ -10,7 +10,7 @@ endif()
 
 set(VERSION 0.1.0)
 if(${BUILD_NUMBER})
-    set(VERSION $VERSION.${BUILD_NUMBER})
+    set(VERSION ${VERSION}.${BUILD_NUMBER})
 endif()
 set(FULL_VERSION ${VERSION}-${GIT_HASH})
 project(HackEdit VERSION ${VERSION})
