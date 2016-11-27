@@ -1,15 +1,26 @@
 cmake_minimum_required(VERSION 3.2)
 
-# get build number from number of commits
-execute_process(COMMAND git rev-list --count HEAD
-                WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-                OUTPUT_VARIABLE BUILD_NUMBER
+execute_process(COMMAND git rev-parse --short HEAD WORKING_DIRECTORY ${CMAKE_SOURCE_DIR} OUTPUT_VARIABLE GIT_HASH
                 OUTPUT_STRIP_TRAILING_WHITESPACE)
-project(HackEdit
-        VERSION 0.1.0.${BUILD_NUMBER})
+if($ENV{TRAVIS_BUILD_NUMBER})
+    set(BUILD_NUMBER $ENV{TRAVIS_BUILD_NUMBER})
+elseif($ENV{APPVEYOR_BUILD_NUMBER})
+    set(BUILD_NUMBER $ENV{APPVEYOR_BUILD_NUMBER})
+endif()
 
+set(VERSION 0.1.0)
+if(${BUILD_NUMBER})
+    set(VERSION $VERSION.${BUILD_NUMBER})
+endif()
+set(FULL_VERSION ${VERSION}-${GIT_HASH})
+project(HackEdit VERSION ${VERSION})
+
+add_definitions(-DHACKEDIT_VERSION=${VERSION})
 add_definitions(-DHACKEDIT_VERSION_MAJOR=${HackEdit_VERSION_MAJOR})
 add_definitions(-DHACKEDIT_VERSION_MINOR=${HackEdit_VERSION_MINOR})
+add_definitions(-DHACKEDIT_VERSION_PATCH=${HackEdit_VERSION_PATH})
+add_definitions(-DHACKEDIT_VERSION_BUILD_NUMBER=${BUILD_NUMBER})
+add_definitions(-DHACKEDIT_GIT_HASH=${GIT_HASH})
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/scripts/cmake" ${CMAKE_MODULE_PATH})
 include(scripts/cmake/Macros.cmake)
@@ -45,7 +56,7 @@ if(BUILD_EDITOR)
 endif()
 
 # Summary
-message(STATUS "Building HackEdit v${HackEdit_VERSION}")
+message(STATUS "Building HackEdit v${FULL_VERSION}")
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 message(STATUS "Build examples: ${BUILD_EXAMPLES}")
 message(STATUS "Build tests: ${BUILD_TESTS}")
