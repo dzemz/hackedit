@@ -28,7 +28,7 @@ int main(int, char *[]) {
     LOG_DEBUG(logger, "debug" << " message");
     LOG_INFO(logger, "information message");
     LOG_WARN(logger, "warning");
-    LOG_ERROR(logger, "error #" << 404);
+    LOG_ERROR(logger, "errorMessage #" << 404);
     LOG_FATAL(logger, "fatal");
 
     // MemoryCheck logger
@@ -38,7 +38,7 @@ int main(int, char *[]) {
     // DatabaseOperations logger
     auto dbLogger = LoggingManager::logger("DatabaseOperations");
     LOG_WARN(dbLogger, "Db warning message should not be logged");
-    LOG_ERROR(dbLogger, "Db error message should be logged");
+    LOG_ERROR(dbLogger, "Db errorMessage message should be logged");
 
     Foo foo;
     foo.bar();

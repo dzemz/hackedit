@@ -2,6 +2,7 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
+import QtQuick.Dialogs 1.2
 import HackEdit.Editor 0.1
 import HackEdit.Common.Icons 0.1
 
@@ -10,7 +11,7 @@ ApplicationWindow {
     visible: true
     width: 1280
     height: 720
-    property bool dark: true
+    property bool dark: false
     Material.theme: dark ? Material.Dark : Material.Light
     Material.accent: dark ? Material.LightBlue: Material.Blue
     Material.primary: Material.background
@@ -107,12 +108,27 @@ ApplicationWindow {
         font.family: MaterialIcons.family
     }
 
+    FileDialog {
+        id: fileDialog
+        title: "Please choose a file"
+        folder: shortcuts.home
+        onAccepted: {
+            console.log("You chose: " + fileDialog.fileUrl)
+            editor.file.path = fileDialog.fileUrl;
+
+        }
+        onRejected: {
+            console.log("Canceled")
+        }
+    }
+
     function newDocument() {
         console.log("Creating a new document");
     }
 
     function openDocument() {
         console.log("Opening an existing document");
+        fileDialog.open();
     }
 
     function saveDocument() {
@@ -129,6 +145,7 @@ ApplicationWindow {
 
 
     CodeEditor {
+        id: editor
         anchors.fill: parent
     }
 }

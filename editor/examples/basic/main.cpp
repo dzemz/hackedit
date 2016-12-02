@@ -1,4 +1,4 @@
-#include <QGuiApplication>
+#include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
 #include <QDebug>
@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     // init logging system with a basic log4cplus config
     LoggingManager::initialize(Log4CplusLoggerFactory::basicConfig());
 
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
     app.setWindowIcon(QIcon::fromTheme("accessories-text-editor"));
     QQmlApplicationEngine engine;
     QQuickStyle::setStyle("Material");
